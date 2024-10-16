@@ -15,9 +15,7 @@ appendRow.onclick = function () {
   if (rows.length < maxCells) {
     const newRow = table.insertRow();
 
-    const columnCount = rows[0].cells.length;
-
-    for (let i = 0; i < columnCount; i++) {
+    for (let count = 0; count < rows[0].cells.length; count++) {
       newRow.insertCell(-1);
     }
 
@@ -40,11 +38,9 @@ removeRow.onclick = function () {
 };
 
 appendColumn.onclick = function () {
-  const columnCount = rows[0].cells.length;
-
-  if (columnCount < maxCells) {
-    for (let i = 0; i < rows.length; i++) {
-      rows[i].insertCell(-1);
+  if (rows[0].cells.length < maxCells) {
+    for (let count = 0; count < rows.length; count++) {
+      rows[count].insertCell(-1);
     }
 
     removeColumn.disabled = false;
@@ -56,11 +52,9 @@ appendColumn.onclick = function () {
 };
 
 removeColumn.onclick = function () {
-  const columnCount = rows[0].cells.length;
-
-  if (columnCount > minCells) {
-    for (let i = 0; i < rows.length; i++) {
-      rows[i].deleteCell(-1);
+  if (rows[0].cells.length > minCells) {
+    for (let count = 0; count < rows.length; count++) {
+      rows[count].deleteCell(-1);
     }
 
     appendColumn.disabled = false;
